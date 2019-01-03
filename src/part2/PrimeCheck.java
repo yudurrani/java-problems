@@ -23,6 +23,11 @@ public class PrimeCheck {
 
 	}
 
+	/**
+	 * for given number returns prime number
+	 * @param number
+	 * @return
+	 */
 	public static boolean isPrime(int number) {
 
 		for (int x = 2; x < number/2; x = x + 1) {
