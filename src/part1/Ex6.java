@@ -10,7 +10,13 @@ public class Ex6 {
 		DecimalFormat formatter = new DecimalFormat("#.###");
 		System.out.println(formatter.format(6.6666));
 		System.out.println(formatter.format(6.6663));
-
+		
+		
+		User Safia = new User();
+		Safia.age = 26;
+		Safia.name = "Safia Yasir";
+		
+		System.out.println( Safia );
 	}
 
 }

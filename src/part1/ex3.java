@@ -15,7 +15,7 @@ public class ex3 {
 		 * asdf
 		 * 
 		 */
-		System.out.println("Enter the temperature in Fahrenheit!");// to print
+		System.out.println("Enter the temperature in  !");// to print
 		
 		Scanner scan = new Scanner(System.in); // scan a value
 		

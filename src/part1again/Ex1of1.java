@@ -8,7 +8,7 @@ public class Ex1of1 {
 		// TODO Auto-generated method stub
 		/*
 		 * Write a program that prompts the user to enter 2 integer values, 
-		 * then prints their sum, difference, product, and modulus 
+		 * then prints their sum, difference, product,modulus and division 
 		 */
 		Scanner scan = new Scanner(System.in); // System.in to read the file;
 		
@@ -25,10 +25,15 @@ public class Ex1of1 {
 		int product = x*y; // product
 		int modulus = x%y; // modulus
 		
+		double doubleX = (double)x;
+		double doubleY = (double)y;
+		double div = doubleX / doubleY;
+		
 		System.out.println("Sum  =" + sum);
 		System.out.println("Difference  =" + diff);
 		System.out.println("Product  =" + product);
 		System.out.println("Modulus  =" + modulus);
+		System.out.println("Division  =" + div);
 		
 		
 	}
