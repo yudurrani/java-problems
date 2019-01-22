@@ -12,10 +12,10 @@ public class BasketBall {
 		Scanner scan = new Scanner(System.in); // for scanning inputs
 
 		System.out.println("");
-		System.out.println("                                \" Welcome to StatsMania \"            ");
+		System.out.println("                                \" Welcome to Stats De Le BasketBall \"            ");
 		System.out.println("");
 
-		System.out.println(" How many players do you want to check : ");
+		System.out.println("Number of Players you want to enter : ");
 		int n = scan.nextInt();
 
 		String[] names = new String[n];
@@ -29,7 +29,7 @@ public class BasketBall {
 
 		for (int i = 0; i < n; i++) {
 
-			System.out.println(" Enter your " + (i + 1) + " Player First name ");
+			System.out.println("Enter your " + (i + 1) + " Player name ");
 
 			String name = scan.next();
 
@@ -55,17 +55,22 @@ public class BasketBall {
 			avgAssists[i] = agAssists;
 		}
 
+		System.out.println("Thanks ! The stats has been added successfully");
+		System.out.println("");
+
 		while (true) {
-			System.out.println("Do you want to seach by Player Name or Stats Category (Ans in : name or stats)");
+			System.out.println("");
+			System.out.println("What do you like to do :-");
+			System.out.println("");
+			System.out.println("	1-To check Player Record: type record");
+			System.out.println("	2-To check which player is Statistical leader of the category: type stats");
+			System.out.println("	3-To update the stats of any player: type update");
+			System.out.println("	4-To compare 2 Players Statiscally on a basis of category: type compare");
+			System.out.println("	5-To know the Best player compared to all : type best");
 
 			String chk = scan.next();
-			boolean name = false;
-			boolean stats = true;
-			if (chk.equals("name")) {
-				name = true;
-			}
 
-			if (name) {
+			if (chk.equals("record")) {
 
 				System.out.println("Enter Players Name to see his stats:");
 
@@ -79,12 +84,9 @@ public class BasketBall {
 
 				}
 
-				else
-					System.out.println("Not found");
-
 			}
 
-			else {
+			if (chk.equals("stats")) {
 
 				System.out.println("Enter which stats you want to see: 	rebounds, points or assists ");
 
@@ -92,43 +94,106 @@ public class BasketBall {
 
 				if (chkStats.equals("rebounds")) {
 					System.out.println(chkStats + " for players are:");
+					System.out.println("");
+					System.out.println("	PLAYER NAME	|	REBOUNDS");
 
 					for (int i = 0; i < n; i++) {
+
+						System.out.println("	" + names[i] + "			" + avgRebounds[i]);
 						System.out.println("");
-						System.out.println("	PLAYER NAME	|	REBOUNDS");
-						System.out.println("	" + names[i] + "				"+ avgRebounds[i]);
 
 					}
+
+					System.out.println("The statistical leader in this category with" + maxx(avgRebounds) + "is");
 				}
-				
+
 				if (chkStats.equals("points")) {
-					
+
 					System.out.println(chkStats + " for players are:");
+					System.out.println("");
+					System.out.println("	PLAYER NAME	|	POINTS");
 
 					for (int i = 0; i < n; i++) {
-						
-						System.out.println("");
-						System.out.println("	PLAYER NAME	|	POINTS");
 
-						System.out.println("	" + names[i] + "				" + avgPoints[i]);
+						System.out.println("");
+
+						System.out.println("	" + names[i] + "			" + avgPoints[i]);
 
 					}
 				}
-				
+
 				if (chkStats.equals("assists")) {
 					System.out.println(chkStats + " for players are:");
+					System.out.println("");
+					System.out.println("	PLAYER NAME	|	ASSISTS");
 
 					for (int i = 0; i < n; i++) {
-						
-						System.out.println("");
-						System.out.println("	PLAYER NAME	|	ASSISTS");
 
-						System.out.println("	" + names[i] + "				"+ avgAssists[i]);
+						System.out.println("");
+
+						System.out.println("	" + names[i] + "			" + avgAssists[i]);
 
 					}
 				}
 			}
 
+			if (chk.equals("update")) {
+
+				System.out.println("Select player do you want to update:");
+
+				for (int i = 0; i < n; i++) {
+
+					System.out.println("");
+
+					System.out.println((i + 1) + ", " + names[i]);
+				}
+
+				String upd = scan.next();
+
+				System.out.println(upd + " Avg. Rebounds ");
+
+				int agRebounds = scan.nextInt();
+
+				System.out.println(upd + " Avg. Points ");
+
+				int agPoints = scan.nextInt();
+
+				System.out.println(upd + " Avg. Assists ");
+
+				int agAssists = scan.nextInt();
+
+				nRebounds.put(upd, Integer.toString(agRebounds));
+				nPoints.put(upd, Integer.toString(agPoints));
+				nAssists.put(upd, Integer.toString(agAssists));
+
+				// problem in finding the array number for desired update
+
+			}
+
+			if (chk.equals("compare")) {
+
+				System.out.println("Enter Players Name to see his stats:");
+
+			}
+
+			if (chk.equals("best")) {
+
+				System.out.println("Enter Players Name to see his stats:");
+
+			}
+
 		}
+	}
+
+	public static int maxx(int[] mx) {
+
+		int max = Integer.MIN_VALUE;
+
+		for (int x = 0; x < mx.length; x++) {
+
+			max = Math.max(max, mx[x]);
+
+		}
+		return max;
 	}
 }
