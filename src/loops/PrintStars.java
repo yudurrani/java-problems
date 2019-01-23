@@ -24,3 +24,12 @@ public class PrintStars {
 	}
 
 }
+//String x = nRebounds.get(chkName);
+//String y = nPoints.get(chkName);
+//String z = nAssists.get(chkName);
+//
+//int [] total= new int[3];
+//
+//total[0] = Integer.valueOf(x);
+//total[1] = Integer.valueOf(y);
+//total[2] = Integer.valueOf(z);
