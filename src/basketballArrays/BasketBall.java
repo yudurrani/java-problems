@@ -1,4 +1,4 @@
-package loops;
+package basketballArrays;
 
 import java.util.HashMap;
 import java.util.Map;
