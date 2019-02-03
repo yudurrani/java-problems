@@ -93,5 +93,17 @@ class Inheritence {
 		Student s = new Student(firstName, lastName, id, testScores);
 		s.printPerson();
 		System.out.println("Grade: " + s.calculate());
+		Person p = new Student(firstName, lastName, id, testScores);
+		
+		
+		Person[] people = new Person[3];
+		people[0]= new Person("zaid", "qureshi",1);
+		people[1]= new Student("yasir", "durrani",2, testScores);
+		people[2]= new Person("danyal", "qureshi",1);
+		
+		for(int i =0; i < people.length; i++) {
+			people[i].printPerson();
+		}
+		
 	}
 }
