@@ -6,7 +6,6 @@ public class Camry extends Toyota{
 		super(color, 3, 220, 4, isAutomatic);
 		// TODO Auto-generated constructor stub
 	}
-	@Override
 	public double acceleration() {
 		// TODO Auto-generated method stub
 		currentSpeed+=15.0;

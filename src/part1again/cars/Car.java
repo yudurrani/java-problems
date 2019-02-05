@@ -1,6 +1,6 @@
 package part1again.cars;
 
-public class Car {
+public abstract class Car {
 	
 	String color;
 	String brand;
@@ -22,16 +22,8 @@ public class Car {
 	}
 	
 	
-	public double acceleration() {		
-		
-		return currentSpeed;
-	}
-	
-	public double decceleration() {
-		
-		return currentSpeed;
-	}
-	
+	public abstract double acceleration();
+	public abstract double decceleration();
 	public double brake() {
 				
 		

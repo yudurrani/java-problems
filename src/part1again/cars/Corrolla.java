@@ -7,7 +7,6 @@ public class Corrolla extends Toyota{
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
 	public double acceleration() {
 		// TODO Auto-generated method stub
 		currentSpeed+=5.0;

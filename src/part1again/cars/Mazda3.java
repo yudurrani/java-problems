@@ -7,4 +7,16 @@ public class Mazda3 extends Mazda{
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public double acceleration() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double decceleration() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

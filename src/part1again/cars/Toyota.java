@@ -1,6 +1,6 @@
 package part1again.cars;
 
-public class Toyota extends Car{
+public abstract class Toyota extends Car{
 
 	Toyota(String color, double enginePower, int maxSpeed,  int noOfDoors,
 			boolean isAutomatic) {
