@@ -1,6 +1,6 @@
 package part1again.cars;
 
-public class Camry extends Toyota{
+public class Camry extends Toyota implements ICar{
 
 	Camry(String color, boolean isAutomatic) {
 		super(color, 3, 220, 4, isAutomatic);
@@ -19,5 +19,20 @@ public class Camry extends Toyota{
 		currentSpeed-=15;
 		
 		return currentSpeed;
+	}
+	@Override
+	public double deacceleration() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double steerLeft() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public double steerRight() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
