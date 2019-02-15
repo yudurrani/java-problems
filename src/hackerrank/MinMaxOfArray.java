@@ -8,14 +8,22 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+
 public class MinMaxOfArray {
 
 	// Complete the miniMaxSum function below.
 	static void miniMaxSum(int[] arr) {
 
-		int min = 10000;
-		int max = 0;
-		int result = 0;
+		  	long[] newarr= new long[arr.length];
+		  	
+		  	for (int x=0; x<arr.length; x++) {
+		  		newarr[x] = arr[x];
+		  	}
+	       
+
+	        long min = Integer.MAX_VALUE;;
+	        long max = Integer.MIN_VALUE;;
+	        long result = 0;
 
 		for (int x = 0; x < arr.length; x++) {
 
