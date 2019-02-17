@@ -13,6 +13,13 @@ public class Person {
 		this.education=education;
 	}
 	
+	Person(String name, int age, int height){
+		this.name=name;
+		this.age= age;
+		this.height=height;
+	
+	}
+	
 	// the function should get us the current age
 	public int getAge() {
 		return age;
