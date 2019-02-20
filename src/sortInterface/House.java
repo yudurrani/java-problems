@@ -3,7 +3,7 @@ package sortInterface;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class House implements HouseInterface {
+public class House implements HouseInterface,SortComparable {
 	String location;
 	ArrayList<Room> rooms;
 	int floors;
@@ -138,6 +138,12 @@ public class House implements HouseInterface {
 		System.out.println(mansion.getClass().getName());
 		System.out.println(house2.getClass().getName());
 
+	}
+
+	@Override
+	public boolean isLessThan(Object o) {
+		// TODO Auto-generated method stub
+		return this.getArea() < ((House)o).getArea();
 	}
 
 	
