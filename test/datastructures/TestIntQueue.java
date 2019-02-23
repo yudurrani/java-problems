@@ -17,7 +17,7 @@ public class TestIntQueue {
 		q.enqueue(-3);
 		q.enqueue(100);
 		
-		assertEquals(4, q.size());
+	assertEquals(4, q.size());
 		assertFalse(q.isEmpty());
 		
 		assertEquals(1, q.dequeue());
