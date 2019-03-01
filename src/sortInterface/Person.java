@@ -13,7 +13,7 @@ public class Person implements SortComparable{
 		this.education=education;
 	}
 	
-	Person(String name, int age, int height){
+	public Person(String name, int age, int height){
 		this.name=name;
 		this.age= age;
 		this.height=height;

@@ -1,19 +1,18 @@
 package datastructures;
 
-import java.util.ArrayList;
 
-public class IntStacksArrayList implements Stacks {
+public class IntStacksArrayList<T> implements Stacks<T> {
 
-	int[] array;
+	T[] array;
 
 	int n;
 
 	IntStacksArrayList() {
 
-		array = new int[10];
+		array = (T[])new Object[10];
 	}
 
-	public void push(int i) {
+	public void push(T i) {
 
 		array[n] = i;
 		n++;
@@ -21,8 +20,8 @@ public class IntStacksArrayList implements Stacks {
 	}
 
 	@Override
-	public int pop() {
-		 int temp = array[n-1];
+	public T pop() {
+		 T temp = array[n-1];
 		 
 		 n-- ;
 		 
@@ -31,7 +30,7 @@ public class IntStacksArrayList implements Stacks {
 	}
 
 	@Override
-	public int peek() {
+	public T peek() {
 		// TODO Auto-generated method stub
 		return array[n-1];
 	}

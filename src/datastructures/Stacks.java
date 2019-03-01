@@ -1,23 +1,25 @@
+
 package datastructures;
 
-public  interface Stacks {
+public  interface Stacks<T> {
+	
 	/**
 	 * This will save the integer pass in at the top of the queue
 	 * @param i the integer that is saved
 	 */
-	public void push(int i);
+	public void push(T x);
 	/**
 	 * This will return the integer passed using LIFO, at the top
 	 * @return the saved integer is returned
 	 */
-	public int pop();
+	public T pop();
 	
 	/**
 	 * This will show the top of the Queue
 	 * @return integer top of Queue
 	 */
 	
-	public int peek();
+	public T peek();
 	
 	/**
 	 * This will give the size of Queue
