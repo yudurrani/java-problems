@@ -4,11 +4,17 @@ public class LinkedQueue implements Queue {
 
 	int size;
 	Node<Integer> head;
+	Node<Integer> tail;
 	
 	@Override
 	public void enqueue(int i) {
-		head= new Node<Integer>(i,head);
+		int newElement= i;
+		
+		head= new Node<Integer>(i,head); 
 		size ++;
+		
+		tail = new Node<Integer>(newElement,tail);
+		
 
 		
 		// TODO Auto-generated method stub
@@ -19,6 +25,7 @@ public class LinkedQueue implements Queue {
 	public int dequeue() {
 		if (head == null) {
 			return 0;
+
 		}
 		
 		if ( size == 1) {

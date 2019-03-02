@@ -28,4 +28,25 @@ public class TestIntQueue {
 		assertTrue(q.isEmpty());
 		assertEquals(0, q.size());
 	}
+
+@Test
+public void testLinkedQueueHeadTail() {
+	Queue q = new LinkedQueueHeadTail();
+	
+	q.enqueue(1);
+	q.enqueue(7);
+	q.enqueue(-3);
+	q.enqueue(100);
+	
+assertEquals(4, q.size());
+	assertFalse(q.isEmpty());
+	
+	assertEquals(1, q.dequeue());
+	assertEquals(7, q.dequeue());
+	assertEquals(-3, q.dequeue());
+	assertEquals(100, q.dequeue());
+	
+	assertTrue(q.isEmpty());
+	assertEquals(0, q.size());
+}
 }
