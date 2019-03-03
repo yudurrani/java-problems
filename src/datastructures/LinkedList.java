@@ -56,7 +56,7 @@ public class LinkedList<E> implements List<E> {
 				} else {
 					head = temp;
 				}
-				size ++ ;
+				size++;
 				return;
 			}
 
@@ -83,10 +83,10 @@ public class LinkedList<E> implements List<E> {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
-		size =0 ;
-		head = null ;
-		tail = null ;
+
+		size = 0;
+		head = null;
+		tail = null;
 
 	}
 
@@ -130,7 +130,7 @@ public class LinkedList<E> implements List<E> {
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return size ==0 ;
+		return size == 0;
 	}
 
 	@Override
@@ -166,8 +166,34 @@ public class LinkedList<E> implements List<E> {
 	@Override
 	public E remove(int index) {
 		// TODO Auto-generated method stub
-		
-		
+
+		Node<E> curr = head;
+
+		for (int x = 0; x < size; x++) {
+
+			if (x == index) {
+				// we are at the point where we have to remove the index
+				E result = curr.value;
+
+				if (x == 0) {
+					head = curr.next;
+					head.prev = null;
+				} else {
+					curr.prev.next = curr.next;
+
+					if (curr.next != null) {
+						curr.next.prev = curr.prev;
+					} else
+						tail = curr.prev;
+				}
+				size--;
+				return result;
+
+			}
+
+			curr = curr.next;
+
+		}
 		return null;
 	}
 
