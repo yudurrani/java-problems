@@ -132,11 +132,27 @@ public class LinkedList<E> implements List<E> {
 		// TODO Auto-generated method stub
 		return size == 0;
 	}
+	
 
 	@Override
 	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Iterator<E>() {
+
+			Node<E> curr = head;
+			@Override
+			public boolean hasNext() {
+				return curr != null;
+			}
+
+			@Override
+			public E next() {
+				E result = curr.value;
+				curr = curr.next;
+				return result;
+			}
+			
+		};
 	}
 
 	@Override
@@ -218,7 +234,7 @@ public class LinkedList<E> implements List<E> {
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return size;
 	}
 
 	@Override
