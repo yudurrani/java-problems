@@ -20,14 +20,23 @@ class LinkedList {
     public static Node insert(Node head,int data) {
         
     	
-    	// writing down the function 
-    	
-    	for (int x=0; x<5 ;x++) {
-    		
+    	if ( head == null) {
+    		head= new Node(data);  		
     	}
     	
+    	else {
+    		Node n= new Node(data);
+    		Node t = head ;
+    		
+    		while (t.next != null) {
+    			
+    			t = t.next;    			
+    		}
+    		
+    		t.next = n ;
+    	}
     	
-    	
+    
     	return head;
     }
 
