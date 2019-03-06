@@ -15,10 +15,18 @@ class Node {
     }
 }
 
-class Solution {
+class LinkedList {
 
     public static Node insert(Node head,int data) {
-        //Complete this method
+        
+    	
+    	// writing down the function 
+    	
+    	for (int x=0; x<5 ;x++) {
+    		
+    	}
+    	
+    	
     	
     	return head;
     }
