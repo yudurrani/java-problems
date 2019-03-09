@@ -86,6 +86,24 @@ public class BinarySearchTree implements List<Integer> {
 		return contains((Integer) o);
 	}
 
+	private boolean contains(Node root, Integer e) {
+		if (root == null) {
+			return false;
+		}
+
+		if (root.value == e) {
+			return true;
+		}
+
+		if (root.value > e) {
+			return contains(root.left, e);
+		}
+
+		else {
+			return contains(root.right, e);
+		}
+	}
+
 	private boolean contains(Integer e) {
 		Node curr = root;
 
