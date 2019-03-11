@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BinarySearchTree implements List<Integer> {
 
@@ -59,7 +60,7 @@ public class BinarySearchTree implements List<Integer> {
 	@Override
 	public void add(int index, Integer element) {
 		// TODO Auto-generated method stub
-
+		throw new UnsupportedOperationException("no index in BST");
 	}
 
 	@Override
@@ -176,6 +177,34 @@ public class BinarySearchTree implements List<Integer> {
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public void printInOrder() {
+		// L,P,R
+		
+
+	}
+
+	public void checkAgain(Node root) {
+
+		if (root == null) {
+			return;
+		}
+
+		checkAgain(root.left);
+
+		System.out.println(root.value);
+
+		checkAgain(root.right);
+
+	}
+
+	public void printPreOrder() {
+
+	}
+
+	public void printPostOrder() {
+
 	}
 
 	@Override
