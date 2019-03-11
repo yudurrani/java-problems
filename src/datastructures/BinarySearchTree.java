@@ -180,30 +180,31 @@ public class BinarySearchTree implements List<Integer> {
 	}
 
 	public void printInOrder() {
-		// L,P,R
-		
+		// Left, parent, right
+		printInOrder(root);
 
 	}
 
-	public void checkAgain(Node root) {
+	private void printInOrder(Node root) {
 
 		if (root == null) {
 			return;
 		}
 
-		checkAgain(root.left);
+		printInOrder(root.left);
 
 		System.out.println(root.value);
 
-		checkAgain(root.right);
+		printInOrder(root.right);
 
 	}
 
 	public void printPreOrder() {
-
+		//Parent, Left, Right
 	}
 
 	public void printPostOrder() {
+		//Left right parent
 
 	}
 
