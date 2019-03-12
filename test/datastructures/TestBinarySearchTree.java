@@ -20,16 +20,26 @@ public class TestBinarySearchTree {
 			tree.add(22);
 			tree.add(35);
 			tree.add(70);
+			tree.add(4);
+			tree.add(12);
+			tree.add(18);
+			tree.add(24);
+			tree.add(31);
+			tree.add(44);
+			tree.add(66);
+			tree.add(90);
 			
 			assertTrue(tree.contains(50));
 			assertTrue(tree.contains(22));
 			
-			
+			System.out.println("In Order");
 			tree.printInOrder();
+			
+			System.out.println("Now PreOrder");
 			tree.printPreOrder();
 			tree.printPostOrder();
 			
-			System.out.println("Does this print?");
+			
 			
 		
 	}

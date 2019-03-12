@@ -200,11 +200,28 @@ public class BinarySearchTree implements List<Integer> {
 	}
 
 	public void printPreOrder() {
-		//Parent, Left, Right
+		// Parent, Left, Right
+		printPreOrder(root);
+
+	}
+
+	private void printPreOrder(Node root) {
+
+		if (root == null) {
+			return;
+		}
+
+		System.out.println(root.value);
+
+		printPreOrder(root.left);
+
+		printPreOrder(root.right);
+		
+
 	}
 
 	public void printPostOrder() {
-		//Left right parent
+		// Left right parent
 
 	}
 
