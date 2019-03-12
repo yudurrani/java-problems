@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -175,9 +176,60 @@ public class BinarySearchTree implements List<Integer> {
 
 	@Override
 	public boolean remove(Object o) {
-		// TODO Auto-generated method stub
+		//preCondition
+		
+		if ( o == null) {
+			throw new IllegalArgumentException( "null" );
+		}
+		
+		if ( root == null ) {
+			throw new NoSuchElementException();
+		}
+		
+		return remove((Integer) o);
+	}
+
+	private boolean remove(Node root, Integer e) {
+		
+		// special case
+		if (root.value == 0) {
+			root = removeTopMost(root); 
+		}
+		
 		return false;
 	}
+
+	 
+		private Node removeTopMost( Node current ) {
+			Node top;
+			if ( current.left == null ) {
+			top = current.right;
+			} else if ( current.right == null ) {
+			top = current.left;
+			} else {
+			current.value = getLeftMost( current.right );
+			current.right = removeLeftMost( current.right );
+			top = current;
+			}
+			return top;
+
+	}
+		private Integer getLeftMost( Node current ) {
+			if ( current == null ) {
+			throw new IllegalArgumentException( "null" );
+			}
+			if ( current.left == null ) {
+			return current.value;
+			}
+			return getLeftMost( current.left );
+		}
+		
+		private Node removeLeftMost(Node current) {
+			if (current.left==null) {
+				return current.right;
+			}
+			return current;
+		}
 
 	public void printInOrder() {
 		// Left, parent, right
@@ -216,7 +268,6 @@ public class BinarySearchTree implements List<Integer> {
 		printPreOrder(root.left);
 
 		printPreOrder(root.right);
-		
 
 	}
 
@@ -226,8 +277,11 @@ public class BinarySearchTree implements List<Integer> {
 	}
 
 	@Override
-	public Integer remove(int index) {
-		// TODO Auto-generated method stub
+	public Integer remove(int number) {
+
+		
+
+		
 		return null;
 	}
 
