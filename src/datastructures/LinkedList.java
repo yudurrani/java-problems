@@ -138,7 +138,7 @@ public class LinkedList<E> implements List<E> {
 	public Iterator<E> iterator() {
 		// TODO Auto-generated method stub
 		return new Iterator<E>() {
-
+			
 			Node<E> curr = head;
 			@Override
 			public boolean hasNext() {

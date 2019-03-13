@@ -30,10 +30,10 @@ public class BinarySearchTree implements List<Integer> {
 
 			root = new Node(e);
 
+		} else {
+			addElement(root, e);
 		}
-
-		addElement(root, e);
-
+		size++;
 		return false;
 	}
 
@@ -150,10 +150,47 @@ public class BinarySearchTree implements List<Integer> {
 		return false;
 	}
 
+	public class InOrderIterator implements Iterator<Integer> {
+
+		Stack<Node> stack;
+
+		public InOrderIterator() {
+			stack = new Stack<Node>();
+			Node curr = root;
+			while (curr != null) {
+				stack.push(curr);
+				curr = curr.left;
+
+			}
+
+		}
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return !(stack.empty());
+		}
+
+		@Override
+		public Integer next() {
+			Node out = stack.pop();
+			if (out.right != null) {
+				Node curr = out.right;
+				while (curr != null) {
+					stack.push(curr);
+					curr = curr.left;
+				}
+			
+			}
+			return out.value;
+		}
+
+	}
+
 	@Override
 	public Iterator<Integer> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		// In order iterator
+		return new InOrderIterator();
 	}
 
 	@Override
@@ -344,16 +381,16 @@ public class BinarySearchTree implements List<Integer> {
 
 				if (leftMost.right != null) {
 					// we have a right sub tree.
-					parent.left = leftMost.right;
+					leftParent.left = leftMost.right;
 				} else {
-					parent.left = null;
+					leftParent.left = null;
 				}
-				
-				curr.value = leftMost.value ;
+
+				curr.value = leftMost.value;
 			}
 
 		}
-		size -- ;
+		size--;
 		return null;
 	}
 

@@ -1,7 +1,10 @@
 package datastructures;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Iterator;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +35,7 @@ public class TestBinarySearchTree {
 			assertTrue(tree.contains(50));
 			assertTrue(tree.contains(22));
 			
+			
 			System.out.println("In Order");
 			tree.printInOrder();
 			
@@ -39,6 +43,27 @@ public class TestBinarySearchTree {
 			tree.printPreOrder();
 			tree.printPostOrder();
 			
+			//
+			
+			tree.remove(66);
+			System.out.println("In Order");
+			tree.printInOrder();
+			assertFalse(tree.contains(66));
+			
+			tree.remove(25);
+			System.out.println("In Order");
+			tree.printInOrder();
+			assertFalse(tree.contains(25));
+			
+			Iterator<Integer> yasir = tree.iterator();
+			
+			assertTrue(yasir.next() == 4 );
+			assertTrue(yasir.next() == 10 );
+			assertTrue(yasir.next() == 12 );
+			assertTrue(yasir.next() == 15 );
+			assertTrue(yasir.next() == 18 );
+			assertTrue(yasir.next() == 22 );
+			assertTrue(yasir.hasNext());
 			
 			
 		
