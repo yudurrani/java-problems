@@ -176,60 +176,60 @@ public class BinarySearchTree implements List<Integer> {
 
 	@Override
 	public boolean remove(Object o) {
-		//preCondition
-		
-		if ( o == null) {
-			throw new IllegalArgumentException( "null" );
+		// preCondition
+
+		if (o == null) {
+			throw new IllegalArgumentException("null");
 		}
-		
-		if ( root == null ) {
+
+		if (root == null) {
 			throw new NoSuchElementException();
 		}
-		
+
 		return remove((Integer) o);
 	}
 
 	private boolean remove(Node root, Integer e) {
-		
+
 		// special case
 		if (root.value == 0) {
-			root = removeTopMost(root); 
+			root = removeTopMost(root);
 		}
-		
+
 		return false;
 	}
 
-	 
-		private Node removeTopMost( Node current ) {
-			Node top;
-			if ( current.left == null ) {
+	private Node removeTopMost(Node current) {
+		Node top;
+		if (current.left == null) {
 			top = current.right;
-			} else if ( current.right == null ) {
+		} else if (current.right == null) {
 			top = current.left;
-			} else {
-			current.value = getLeftMost( current.right );
-			current.right = removeLeftMost( current.right );
+		} else {
+			current.value = getLeftMost(current.right);
+			current.right = removeLeftMost(current.right);
 			top = current;
-			}
-			return top;
+		}
+		return top;
 
 	}
-		private Integer getLeftMost( Node current ) {
-			if ( current == null ) {
-			throw new IllegalArgumentException( "null" );
-			}
-			if ( current.left == null ) {
+
+	private Integer getLeftMost(Node current) {
+		if (current == null) {
+			throw new IllegalArgumentException("null");
+		}
+		if (current.left == null) {
 			return current.value;
-			}
-			return getLeftMost( current.left );
 		}
-		
-		private Node removeLeftMost(Node current) {
-			if (current.left==null) {
-				return current.right;
-			}
-			return current;
+		return getLeftMost(current.left);
+	}
+
+	private Node removeLeftMost(Node current) {
+		if (current.left == null) {
+			return current.right;
 		}
+		return current;
+	}
 
 	public void printInOrder() {
 		// Left, parent, right
@@ -279,9 +279,81 @@ public class BinarySearchTree implements List<Integer> {
 	@Override
 	public Integer remove(int number) {
 
-		
+		if (root == null || size == 0 || !contains(number)) {
+			System.out.print(" nothing in the root");
 
-		
+		}
+
+		else if (root.value == number && size == 1) {
+
+			root = null;
+		}
+
+		else {
+			Node curr = root;
+			Node parent = null;
+
+			while (curr.value != number) {
+				parent = curr;
+
+				if (curr.value > number) {
+					curr = curr.left;
+				} else {
+					curr = curr.right;
+				}
+			}
+
+			// curr points to the node that needs to be removed.
+
+			if (curr.left == null && curr.right == null) {
+				// this curr is the leaf node
+
+				if (parent.left == curr) {
+					parent.left = null;
+				} else
+					parent.right = null;
+			}
+
+			else if (curr.left == null) {
+				// current only have the right sub tree.
+				if (parent.left == curr) {
+					parent.left = curr.right;
+				} else
+					parent.right = curr.right;
+			}
+
+			else if (curr.right == null) {
+				// current only have the left sub tree.
+				if (parent.left == curr) {
+					parent.left = curr.left;
+				} else
+					parent.right = curr.left;
+			}
+
+			else {
+				// current have a full sub tree
+
+				Node leftMost = curr.right;
+				Node leftParent = curr;
+				while (leftMost.left != null) {
+					leftParent = leftMost;
+					leftMost = leftMost.left;
+
+				}
+				// i have the left most value of the right sub tree.
+
+				if (leftMost.right != null) {
+					// we have a right sub tree.
+					parent.left = leftMost.right;
+				} else {
+					parent.left = null;
+				}
+				
+				curr.value = leftMost.value ;
+			}
+
+		}
+		size -- ;
 		return null;
 	}
 
