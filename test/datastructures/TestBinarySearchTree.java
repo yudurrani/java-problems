@@ -65,6 +65,12 @@ public class TestBinarySearchTree {
 			assertTrue(yasir.next() == 22 );
 			assertTrue(yasir.hasNext());
 			
+			Iterator<Integer> it = tree.iterator();
+			System.out.println("Iterator");
+			while(it.hasNext()) {
+				System.out.println(it.next()*2);
+			}
+			
 			
 		
 	}
