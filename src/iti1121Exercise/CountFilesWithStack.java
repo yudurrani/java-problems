@@ -24,7 +24,7 @@ public class CountFilesWithStack {
 				for (int i = 0; i < file.listFiles().length; i++) {
 					File dFile = file.listFiles()[i];
 					stack.push(dFile);
-					
+				
 				}
 
 			} else
