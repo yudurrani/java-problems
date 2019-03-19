@@ -37,7 +37,7 @@ public class IntQueueArray implements Queue {
 
 	@Override
 	public boolean isEmpty() {
-
+  
 		return n == 0;
 	}
 
