@@ -7,7 +7,7 @@ public class CircularLog {
 	int curser;
 	String[] forInfo;
 
-	CircularLog(int maxCapacity) {
+	public CircularLog(int maxCapacity) {
 		capacity = maxCapacity;
 		forInfo = new String[maxCapacity];
 
