@@ -24,7 +24,7 @@ public class UsingStacksQueues {
 	}
 
 	public char popCharacter() {
-		char x = chrS[forStack+1];
+		char x = chrS[forStack-1];
 		forStack--;
 		return x;
 	}
@@ -59,8 +59,10 @@ public class UsingStacksQueues {
 
 	        // Pop/Dequeue the chars at the head of both data structures and compare them:
 	        boolean isPalindrome = true;
-	        for (int i = 0; i < s.length/2; i++) {
-	            if (p.popCharacter() != p.dequeueCharacter()) {
+	        for (int i = 0; i < s.length; i++) {
+	        	char qChar = p.dequeueCharacter();
+	        	char sChar = p.popCharacter();
+	            if (qChar != sChar) {
 	                isPalindrome = false;                
 	                break;
 	            }
