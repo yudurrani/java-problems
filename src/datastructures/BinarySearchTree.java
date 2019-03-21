@@ -157,6 +157,7 @@ public class BinarySearchTree implements List<Integer> {
 		public InOrderIterator() {
 			stack = new Stack<Node>();
 			Node curr = root;
+			
 			while (curr != null) {
 				stack.push(curr);
 				curr = curr.left;

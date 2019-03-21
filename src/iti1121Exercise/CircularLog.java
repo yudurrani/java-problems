@@ -1,5 +1,11 @@
 package iti1121Exercise;
 
+import java.util.Iterator;
+
+import datastructures.BinarySearchTree.InOrderIterator;
+
+
+
 public class CircularLog {
 
 	int capacity;
@@ -33,12 +39,37 @@ public class CircularLog {
 
 	public String get(int x) {
 
-		if (size < capacity) {
+		if (size <= capacity) {
 			return forInfo[x];
 		} else
-			return forInfo[(curser+x+1)%capacity];
-
+			return forInfo[(curser + x) % capacity];
 
 	}
+
+	public class CircularLogIterator implements Iterator<String> {
+		
+	
+
+
+		int c = 0;
+
+		@Override
+		public boolean hasNext() {
+			return c < capacity;
+		}
+
+		@Override
+		public String next() {
+
+			return get(c++);
+		}
+	}
+	public Iterator<String> iterator() {
+		
+		return new CircularLogIterator();
+	}
+	
+	
+
 
 }

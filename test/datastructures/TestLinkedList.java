@@ -37,11 +37,11 @@ public class TestLinkedList {
 		Iterator<Integer> iterator = list.iterator();
 		Iterator<Integer> iterator2 = list.iterator();
 
-		iterator.next();
+		iterator.next();//returns 5
 		
-		iterator.next();
+		iterator.next();//returns 6
 		
-		iterator2.next();
+		iterator2.next();//return 5
 		
 		
 	}
