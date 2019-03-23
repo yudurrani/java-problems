@@ -29,7 +29,6 @@ public class TestCircularLog {
 		Iterator<String> iterator = l.iterator();
 
 		assertTrue(iterator.hasNext());
-
 		assertEquals("True.Yes", iterator.next());
 		assertTrue(iterator.hasNext());
 		assertEquals("A constructor has a return value and the same name as its class.", iterator.next());

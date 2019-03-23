@@ -12,6 +12,7 @@ public class CircularLog {
 	int size;
 	int curser;
 	String[] forInfo;
+	int version = 0;
 
 	public CircularLog(int maxCapacity) {
 		capacity = maxCapacity;
@@ -27,6 +28,7 @@ public class CircularLog {
 		forInfo[curser] = info;
 		curser++;
 		size++;
+		version++;
 
 	}
 
@@ -47,11 +49,12 @@ public class CircularLog {
 	}
 
 	public class CircularLogIterator implements Iterator<String> {
-		
-	
-
-
 		int c = 0;
+		
+		int iteratorVersion;
+		public CircularLogIterator() {
+			iteratorVersion = version;
+		}
 
 		@Override
 		public boolean hasNext() {
@@ -60,6 +63,9 @@ public class CircularLog {
 
 		@Override
 		public String next() {
+			if(iteratorVersion != version) {
+				throw new RuntimeException("Iterator is invalid, out of sync");
+			}
 
 			return get(c++);
 		}
