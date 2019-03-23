@@ -2,30 +2,27 @@ package gameOfRumyy;
 
 public class Die {
 
-	int currentDieValue;
-	int newDieValue ;
+	int currentDieValue = 3;
+	int newDieValue = 4;
 
 	public Die() {
-		currentDieValue = 3;
+
 	}
 
-	
-
 	public int getValue() {
-		
-		currentDieValue = newDieValue ;
 
 		return currentDieValue;
 	}
-	
+
 	public int roll() {
-		int newDieValue = (int) ((Math.random() * ((6 - 1) + 1)) + 1);
+		newDieValue = (int) ((Math.random() * ((6 - 1) + 1)) + 1);
+		currentDieValue = newDieValue;
 		return newDieValue;
 	}
+
+	public String toString(){
+		return currentDieValue+"";
 	
-	public String d() {
-		return "Die { value : " + getValue() + "}";
-		
 	
 	}
 
