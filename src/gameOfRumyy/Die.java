@@ -21,7 +21,7 @@ public class Die {
 	}
 
 	public String toString(){
-		return currentDieValue+"";
+		return "Die {value:" + currentDieValue+ "}";
 	
 	
 	}
