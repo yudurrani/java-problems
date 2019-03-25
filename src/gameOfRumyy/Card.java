@@ -30,8 +30,17 @@ public class Card {
 		return rank;
 	}
 
-	public boolean ifEquals(Card c) {
+	public boolean equals(Card c) {
 
 		return (c.suit == suit) && (c.rank == rank);
 	}
+
+	public String toString() {
+		return "{" + suit + "," + rank + "}";
+	}
+
+	public static final int CLUB = 1;
+	public static final int DIAMOND = 0;
+	public static final int HEART = 2;
+	public static final int SPADE = 3;
 }
