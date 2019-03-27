@@ -10,6 +10,8 @@ public class LinkedList<E> implements List<E> {
 	Node<E> head;
 	Node<E> tail;
 	int size;
+	int a;
+	String b;
 
 	@Override
 	public boolean add(E e) {
