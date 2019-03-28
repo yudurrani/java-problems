@@ -10,7 +10,7 @@ public class LinkedList<E> implements List<E> {
 	Node<E> head;
 	Node<E> tail;
 	int size;
-	
+	 
 
 	@Override
 	public boolean add(E e) {
