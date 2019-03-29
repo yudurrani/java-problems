@@ -1,11 +1,10 @@
 package gameOfRumyy;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Deck {
 
-	int totalCards;
+//	int totalCards;
 	ArrayList<Card> cards;
 
 	public Deck() {
@@ -13,18 +12,31 @@ public class Deck {
 
 	}
 
-	public Deck(int n) {
+	public Deck(int rank) {
 		// n is the total number of ranks
-		totalCards = 4 * n;
-		cards = new ArrayList<Card>();
+
+		cards = new ArrayList<Card>(4 * rank);
+
+		for (int suit = 1; suit <= 4; suit++) {
+
+			for (int cardNum = 1; cardNum <= rank; cardNum++) {
+
+				Card newCard = new Card(suit, cardNum);
+
+				cards.add(newCard);
+				//cards.add(new Card(suit, cardNum)); another way
+			}
+
+		}
+
 	}
 
 	public int size() {
-		return totalCards;
+		return cards.size();
 	}
 
 	public boolean hasCards() {
-		return totalCards != 0;
+		return cards.size() != 0;
 	}
 
 	public Card get(int pos) {
@@ -35,33 +47,28 @@ public class Deck {
 
 	public void add(Card card) {
 		cards.add(card);
-		totalCards++;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void addAll(Deck other) {
-		// this will add all the other cards of deck into this deck
-//		while (other.hasNext()) {
-		cards.addAll((Collection<? extends Card>) other);
-		while (totalCards != 0) {
-			other.removeLast();
-		}
+		cards.addAll(other.cards);
 	}
 
 	public Card removeLast() {
-		Card temp = cards.get(totalCards - 1);
-		cards.remove(totalCards - 1);
-		totalCards--;
-		return temp;
+		return cards.remove(size() - 1);
 	}
 
 	public Card removeFirst() {
-		Card temp = cards.get(0);
-		cards.remove(0);
-		totalCards--;
-		return temp;
+		return cards.remove(0);
 	}
-	
-	
+
+	public boolean remove(Card card) {
+		for (int n = 0; n < size(); n++) {
+			if (card == cards.get(n)) {
+				cards.remove(n);
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
