@@ -70,5 +70,15 @@ public class Deck {
 		}
 		return false;
 	}
+	
+	public boolean removeAll(Card card) {
+		for (int n = 0; n < size(); n++) {
+			if (card == cards.get(n)) {
+				cards.remove(n);
+				return true;
+			}
+		}
+		return false;
+	}
 
 }
