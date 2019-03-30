@@ -76,6 +76,7 @@ public class Deck {
 			if (card == cards.get(n)) {
 				cards.remove(n);
 				return true;
+				//removing all cards at once
 			}
 		}
 		return false;
