@@ -77,6 +77,22 @@ public class Deck {
 				cards.remove(n);
 				return true;
 				//removing all cards at once
+				/*
+				 * select Hackers.hacker_id , count(distinct challenges.challenge_id) as totalchallenges
+
+from Hackers
+ 
+left join Submissions on Submissions.hacker_id = Hackers.hacker_id
+left join Challenges on Submissions.challenge_id = Challenges.challenge_id
+left join Difficulty on Difficulty.difficulty_level = Challenges.difficulty_level
+
+where Submissions.score = Difficulty.score
+
+Group by hackers.hacker_id
+
+having count(distinct challenges.challenge_id) > 1
+order by totalchallenges
+				 */
 			}
 		}
 		return false;
