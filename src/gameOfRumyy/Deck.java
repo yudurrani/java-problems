@@ -81,18 +81,22 @@ public class Deck {
 		}
 		return false;
 	}
-	
+
 	public void removeAll(Deck other) {
 		this.cards.removeAll(other.cards);
-		
+
 	}
-	
+
 	public void shuffle() {
-		if (cards.size() != 0) {
-			
+		int size  = cards.size() ;
+		if (size != 0) {
+			for (int x = 0; x < size / 2; x++) {
+				Card temp = cards.get(x);
+				cards.set(x, cards.get(size / 2 + x));
+				cards.set(size / 2 + x, temp);
+			}
 		}
-		
+
 	}
-	
-	
+
 }
