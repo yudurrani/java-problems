@@ -88,13 +88,18 @@ public class Deck {
 	}
 
 	public void shuffle() {
-		int size  = cards.size() ;
+		int size = cards.size();
 		if (size != 0) {
+
 			for (int x = 0; x < size / 2; x++) {
-				Card temp = cards.get(x);
-				cards.set(x, cards.get(size / 2 + x));
-				cards.set(size / 2 + x, temp);
+
+				int firstCardPlace = (int) (Math.random() * size);
+				int secondCardPlace = (int) (Math.random() * size);
+				Card temp = cards.get(firstCardPlace);
+				cards.set(firstCardPlace, cards.get(secondCardPlace));
+				cards.set(secondCardPlace, temp);
 			}
+
 		}
 
 	}
