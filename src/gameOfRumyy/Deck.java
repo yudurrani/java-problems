@@ -68,6 +68,7 @@ public class Deck {
 				return true;
 			}
 		}
+		// return cards.remove(card); does the same thing
 		return false;
 	}
 
@@ -104,4 +105,15 @@ public class Deck {
 
 	}
 
+	public Deck deal(int n) {
+		Deck newDeck = new Deck();
+		for (int x = 0; x < n; x++) {
+			newDeck.add(removeLast());
+		}
+		return newDeck;
+	}
+	
+	public boolean contains(Card card) {
+		return cards.remove(card);
+	}
 }
