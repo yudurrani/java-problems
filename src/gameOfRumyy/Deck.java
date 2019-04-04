@@ -131,13 +131,14 @@ public class Deck {
 	}
 
 	public boolean isKind() {
-		for (int i = 0; i < size(); i++) {
-			for (int x = 0; x < size(); x++) {
-				if (x != i && cards.get(i).equals(cards.get(x))) {
 
-					return true;
-				}
+		if (size() >= 2) {
+			// Starting all the cards from 1 because comparing it from Card(0)
+			for (int i = 1; i < size(); i++) {
+				if (!cards.get(i).equals(cards.get(0)))
+					return false;
 			}
+			return true;
 		}
 		return false;
 	}
