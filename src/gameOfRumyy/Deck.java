@@ -1,5 +1,7 @@
 package gameOfRumyy;
 
+import static org.junit.Assert.assertThat;
+
 import java.util.ArrayList;
 
 public class Deck {
@@ -112,8 +114,20 @@ public class Deck {
 		}
 		return newDeck;
 	}
-	
+
 	public boolean contains(Card card) {
-		return cards.remove(card);
+		for (int n = 0; n < size(); n++) {
+			if (card == cards.get(n)) {
+
+				return true;
+			}
+		}
+		return false;
 	}
+
+	public boolean containsAll(Deck other) {
+
+		return other.cards.containsAll(cards);
+	}
+
 }
