@@ -130,4 +130,15 @@ public class Deck {
 		return other.cards.containsAll(cards);
 	}
 
+	public boolean isKind() {
+		for (int i = 0; i < size(); i++) {
+			for (int x = 0; x < size(); x++) {
+				if (x != i && cards.get(i).equals(cards.get(x))) {
+
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

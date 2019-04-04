@@ -1,5 +1,7 @@
 package gameOfRumyy;
 
+import java.util.ArrayList;
+
 public class MainGame {
 
 	/*
@@ -24,6 +26,14 @@ public class MainGame {
 		System.out.println(a);
 		System.out.println(a.equals(b));
 		System.out.println(a.equals(c));
+
+		Deck newDeck = new Deck();
+		
+		newDeck.add(a);
+		newDeck.add(b);
+		newDeck.add(c);
+
+		System.out.println(newDeck.isKind());
 
 	}
 
