@@ -1,7 +1,7 @@
 package gameOfRumyy;
 
 public class Card {
-	/*
+	 /*
 	 * You must implement the class Card. • An object of the class Card stores a
 	 * suit and a rank, both of type int. • The class declares one constructor. It
 	 * receives the initial value for the suit and the rank as parameters. • Each

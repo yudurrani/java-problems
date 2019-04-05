@@ -135,11 +135,42 @@ public class Deck {
 		if (size() >= 2) {
 			// Starting all the cards from 1 because comparing it from Card(0)
 			for (int i = 1; i < size(); i++) {
-				if (!cards.get(i).equals(cards.get(0)))
+				if (cards.get(i).getRank() != (cards.get(0).getRank()))
 					return false;
 			}
 			return true;
 		}
 		return false;
 	}
+
+	public boolean isSeq() {
+
+		if (size() >= 3) {
+			// Starting all the cards from 1 because comparing it from Card(0)
+			for (int i = 1; i < size(); i++) {
+				boolean isInvalidSuit = cards.get(i).getSuit() != cards.get(0).getSuit();
+				boolean isInvalidRank = (cards.get(0).getRank() + i) != cards.get(i).getRank();
+				if (isInvalidSuit || isInvalidRank) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public void sortByRank() {
+
+		for (int i = 0; i < size(); i++) {
+			for (int x = 0; x < size(); x++) {
+				if (cards.get(i).getRank() < cards.get(x).getRank()) {
+
+					Card temp = cards.get(i);
+					cards.set(i, cards.get(x));
+					cards.set(x, temp);
+				}
+			}
+		}
+	}
+
 }
