@@ -172,5 +172,11 @@ public class Deck {
 			}
 		}
 	}
+	
+	public void print() {
+		for ( int i = 0 ; i < size () ; i++) {
+			System.out.println("Suit :" + cards.get(i).getSuit() + "  Rank :" + cards.get(i).getRank());
+		}
+	}
 
 }
