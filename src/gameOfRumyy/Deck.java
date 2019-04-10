@@ -173,6 +173,20 @@ public class Deck {
 		}
 	}
 	
+	public void sortBySuit() {
+		for (int i = 0; i < size(); i++) {
+			for (int x = 0; x < size(); x++) {
+				if (cards.get(i).getSuit() < cards.get(x).getSuit()) {
+
+					Card temp = cards.get(i);
+					cards.set(i, cards.get(x));
+					cards.set(x, temp);
+				}
+			}
+		}
+		
+	}
+	
 	public void print() {
 		for ( int i = 0 ; i < size () ; i++) {
 			System.out.println("Suit :" + cards.get(i).getSuit() + "  Rank :" + cards.get(i).getRank());
