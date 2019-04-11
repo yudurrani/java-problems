@@ -140,8 +140,10 @@ public class Test {
 	        deck = new Deck(13);
 
 	        assertEquals(deck.size(), 52);
+	        
+	        System.out.println();
 
-	        assertEquals(deck.contains(new Card(Card.SPADE, 2)), true);
+	        assertEquals(deck.contains(new Card(3, 2)), true);
 
 	        assertEquals(deck.containsAll(hand), true);
 
