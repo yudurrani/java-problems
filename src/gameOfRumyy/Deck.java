@@ -146,7 +146,7 @@ public class Deck {
 	public boolean isSeq() {
 
 		if (size() >= 3) {
-			// Starting all the cards from 1 because comparing it from Card(0)
+		
 			for (int i = 1; i < size(); i++) {
 				boolean isInvalidSuit = cards.get(i).getSuit() != cards.get(0).getSuit();
 				boolean isInvalidRank = (cards.get(0).getRank() + i) != cards.get(i).getRank();
