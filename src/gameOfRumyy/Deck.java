@@ -114,10 +114,10 @@ public class Deck {
 		}
 		return newDeck;
 	}
-
+//  assertEquals(deck.contains(new Card(3, 2)), true);
 	public boolean contains(Card card) {
 		for (int n = 0; n < size(); n++) {
-			if (card == cards.get(n)) {
+			if (card.equals(cards.get(n))) {
 
 				return true;
 			}
@@ -127,7 +127,12 @@ public class Deck {
 
 	public boolean containsAll(Deck other) {
 
-		return other.cards.containsAll(cards);
+		for(Card card : other.cards) {
+			if(!contains(card)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public boolean isKind() {

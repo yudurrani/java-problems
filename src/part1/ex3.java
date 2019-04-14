@@ -24,6 +24,8 @@ public class ex3 {
 		double C = (5.0/9.0) * (dX-32.0);
 		
 		System.out.println( "Temperature in \"celsius\" = " + C );
+		
+		System.out.println ( " ");
 				
 				
 		
