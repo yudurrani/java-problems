@@ -1,6 +1,7 @@
 package datastructures;
 
 import java.util.Collection;
+//
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -9,6 +10,8 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class BinarySearchTree implements List<Integer> {
+	
+	//  Node
 
 	class Node {
 		int value;
