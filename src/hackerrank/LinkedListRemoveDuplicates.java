@@ -3,7 +3,7 @@ package hackerrank;
 import java.io.*;
 import java.util.*;
 
-public class LinkedListsAgain {
+public class LinkedListRemoveDuplicates {
 	static class Node {
 		int data;
 		Node next;
