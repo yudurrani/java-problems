@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import datastructures.God;
+
 public class TestPrimeNumber {
 
 	@Test
@@ -13,7 +15,6 @@ public class TestPrimeNumber {
 		assertTrue("Should be a prime",PrimeCheck.isPrime(19));
 		assertFalse(PrimeCheck.isPrime(20));
 		assertFalse("Should not be a prime", PrimeCheck.isPrime(20));
-
 
 	}
 }
