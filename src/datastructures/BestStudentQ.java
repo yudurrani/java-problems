@@ -7,8 +7,7 @@ import java.util.PriorityQueue;
 
 class StudentComparator implements Comparator<Student> {
 
-	// Overriding compare()method of Comparator
-	// for descending order of cgpa
+	
 	public int compare(Student s1, Student s2) {
 		if (s1.gpa < s2.gpa)
 			return 1;
