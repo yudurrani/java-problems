@@ -41,9 +41,24 @@ public class MaxHeap<E> {
 	 * @param currentIndex, index of current node to compare
 	 */
 	private void upHeap(int currentIndex) {
-		
-		
+		if (currentIndex == 0) {
+			return;
+		}
 
+		boolean shouldSwap = comparator.compare(getParent(currentIndex), valueList.get(currentIndex)) < 0;
+		if (shouldSwap) {
+			int parentIndex= getParentIndex(currentIndex);
+			swap(parentIndex, currentIndex);
+
+			upHeap(parentIndex);
+		}
+
+	}
+
+	private void swap(int index1, int index2) {
+		E replaced = valueList.get(index1);
+		valueList.set(index1, valueList.get(index2));
+		valueList.set(index2, replaced);
 	}
 
 	private E getParent(int currentIndex) {
@@ -75,19 +90,45 @@ public class MaxHeap<E> {
 
 	}
 
+	/**
+	 * element with highest priority
+	 * @return
+	 */
 	public E max() {
 		// TODO Auto-generated method stub
-		return null;
+		if(valueList.isEmpty()){
+			return null;
+		}
+		else return valueList.get(0);
 	}
 
-	public int maxKey() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	/**
+	 * remove element with highest priority
+	 * @return
+	 */
 	public E remove() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		if(valueList.isEmpty()){
+			return null;
+		}
+		
+		E deleted = valueList.get(0);
+		
+		valueList.set(0, valueList.get(valueList.size()-1));
+		
+		
+		
+		boolean shouldSwap = comparator.compare(getLeftChild(0), getRightChild(0)) > 0;
+		if (shouldSwap) {
+			int parentIndex= getParentIndex(0);
+			swap(parentIndex, getLeftChildIndex(0));
 
+			// need to use recursion here to repeat the process
+		}
+		
+		
+		
+	
+	return null;
+	}
 }
