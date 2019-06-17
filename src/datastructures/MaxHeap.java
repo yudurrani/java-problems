@@ -47,7 +47,7 @@ public class MaxHeap<E> {
 
 		boolean shouldSwap = comparator.compare(getParent(currentIndex), valueList.get(currentIndex)) < 0;
 		if (shouldSwap) {
-			int parentIndex= getParentIndex(currentIndex);
+			int parentIndex = getParentIndex(currentIndex);
 			swap(parentIndex, currentIndex);
 
 			upHeap(parentIndex);
@@ -92,43 +92,47 @@ public class MaxHeap<E> {
 
 	/**
 	 * element with highest priority
+	 * 
 	 * @return
 	 */
 	public E max() {
 		// TODO Auto-generated method stub
-		if(valueList.isEmpty()){
+		if (valueList.isEmpty()) {
 			return null;
-		}
-		else return valueList.get(0);
+		} else
+			return valueList.get(0);
 	}
 
 	/**
 	 * remove element with highest priority
+	 * 
 	 * @return
 	 */
 	public E remove() {
 		// TODO Auto-generated method stub
-		if(valueList.isEmpty()){
+		if (valueList.isEmpty()) {
 			return null;
 		}
-		
-		E deleted = valueList.get(0);
-		
-		valueList.set(0, valueList.get(valueList.size()-1));
-		
-		
-		
-		boolean shouldSwap = comparator.compare(getLeftChild(0), getRightChild(0)) > 0;
-		if (shouldSwap) {
-			int parentIndex= getParentIndex(0);
-			swap(parentIndex, getLeftChildIndex(0));
 
-			// need to use recursion here to repeat the process
-		}
+		E deleted = valueList.get(0);
+		int parentIndex = getParentIndex(i);
+
+		valueList.set(0, valueList.get(valueList.size() - 1));
+//
+//		while (getLeftChild(i) != null && getRightChild(i) != null) {
+//			boolean shouldSwap = comparator.compare(getLeftChild(i), getRightChild(i)) > 0;
+//			if (shouldSwap) {
+//
+//				swap(parentIndex, getLeftChildIndex(i));
+//
+//				
+//			} else
+//				swap(parentIndex, getRightChildIndex(i));
+//		}
+//		
+//		remove(parentIndex);
 		
-		
-		
-	
-	return null;
+
+		return deleted;
 	}
 }
