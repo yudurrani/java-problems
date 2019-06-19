@@ -115,24 +115,38 @@ public class MaxHeap<E> {
 		}
 
 		E deleted = valueList.get(0);
-		int parentIndex = getParentIndex(i);
 
-		valueList.set(0, valueList.get(valueList.size() - 1));
-//
-//		while (getLeftChild(i) != null && getRightChild(i) != null) {
-//			boolean shouldSwap = comparator.compare(getLeftChild(i), getRightChild(i)) > 0;
-//			if (shouldSwap) {
-//
-//				swap(parentIndex, getLeftChildIndex(i));
-//
-//				
-//			} else
-//				swap(parentIndex, getRightChildIndex(i));
-//		}
-//		
-//		remove(parentIndex);
-		
+		int lastIndex = valueList.size() - 1;
+		valueList.set(0, valueList.get(lastIndex));
+		valueList.remove(lastIndex);
 
+		downHeap(0);
 		return deleted;
+	}
+
+	private void downHeap(int i) {
+		
+		if (getLeftChild(i)==null && getRightChild(i)==null) {
+			return ;
+		}
+
+		boolean isLeftChildGreater = comparator.compare(getLeftChild(i), getRightChild(i)) > 0;
+
+		if (isLeftChildGreater) {
+			boolean parentSwap = comparator.compare(getLeftChild(i), valueList.get(i)) > 0;
+
+			if (parentSwap) {
+				swap(getLeftChildIndex(i), i);
+			}
+			downHeap(getLeftChildIndex(i));
+		} else {
+			boolean parentSwap = comparator.compare(getRightChild(i), valueList.get(i)) > 0;
+
+			if (parentSwap) {
+				swap(getRightChildIndex(i), i);
+			}
+			downHeap(getRightChildIndex(i));
+		}
+		
 	}
 }
