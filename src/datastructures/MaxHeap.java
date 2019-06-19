@@ -45,13 +45,14 @@ public class MaxHeap<E> {
 			return;
 		}
 
-		boolean shouldSwap = comparator.compare(getParent(currentIndex), valueList.get(currentIndex)) < 0;
+		boolean shouldSwap = comparator.compare(getParent(currentIndex), valueList.get(currentIndex)) > 0;
 		if (shouldSwap) {
 			int parentIndex = getParentIndex(currentIndex);
 			swap(parentIndex, currentIndex);
 
 			upHeap(parentIndex);
 		}
+		else return;
 
 	}
 
@@ -62,31 +63,31 @@ public class MaxHeap<E> {
 	}
 
 	private E getParent(int currentIndex) {
-		int parentIndex = (currentIndex + 1) / 2;
+		int parentIndex = getParentIndex(currentIndex);
 		return valueList.get(parentIndex);
 	}
 
 	private int getParentIndex(int currentIndex) {
-		return (currentIndex + 1) / 2;
+		return ((currentIndex + 1) / 2)-1;
 	}
 
 	private E getRightChild(int currentIndex) {
-		int rightChild = (2 * (currentIndex + 1)) + 1;
+		int rightChild = getRightChildIndex(currentIndex);
 		return valueList.get(rightChild);
 	}
 
 	private int getRightChildIndex(int currentIndex) {
-		return (2 * (currentIndex + 1)) + 1;
+		return getLeftChildIndex(currentIndex) + 1;
 
 	}
 
 	private E getLeftChild(int currentIndex) {
-		int leftChild = 2 * (currentIndex + 1);
+		int leftChild = getLeftChildIndex(currentIndex);
 		return valueList.get(leftChild);
 	}
 
 	private int getLeftChildIndex(int currentIndex) {
-		return 2 * (currentIndex + 1);
+		return (2 * (currentIndex + 1))-1;
 
 	}
 
@@ -137,15 +138,15 @@ public class MaxHeap<E> {
 
 			if (parentSwap) {
 				swap(getLeftChildIndex(i), i);
+				downHeap(getLeftChildIndex(i));
 			}
-			downHeap(getLeftChildIndex(i));
 		} else {
 			boolean parentSwap = comparator.compare(getRightChild(i), valueList.get(i)) > 0;
 
 			if (parentSwap) {
 				swap(getRightChildIndex(i), i);
+				downHeap(getRightChildIndex(i));
 			}
-			downHeap(getRightChildIndex(i));
 		}
 		
 	}

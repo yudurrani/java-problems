@@ -16,4 +16,9 @@ public class Student {
 	public double getgpa() {
 		return gpa;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return String.format("Student[name=%s, gpa=%s]", name, gpa);
+	}
 }

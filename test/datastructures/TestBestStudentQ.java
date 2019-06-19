@@ -12,12 +12,18 @@ public class TestBestStudentQ {
 		IMaxPriorityQueue<Student> studentQ = new BestStudentQ();
 		
 		Student student1 = new Student("Zaid", 3.8);
-		studentQ.insert((int)student1.getgpa()*10, student1);
+		studentQ.insert(student1);
 		
 		Student student2 = new Student("Zaynab", 4.0);
-		studentQ.insert((int)student2.getgpa()*10, student2);
+		studentQ.insert(student2);
 		
-		assertEquals(2, studentQ.size());
+		Student student3 = new Student("Shaheera", 3.9);
+		studentQ.insert(student3);
+		
+		Student student4 = new Student("abcd", 3.0);
+		studentQ.insert(student4);
+		
+		assertEquals(4, studentQ.size());
 		assertFalse(studentQ.isEmpty());
 		assertEquals(student2, studentQ.max());
 		assertEquals((int)student2.getgpa()*10, studentQ.maxKey());

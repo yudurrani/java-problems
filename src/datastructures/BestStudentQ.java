@@ -23,65 +23,54 @@ class StudentComparator implements Comparator<Student> {
 	}
 }
 
-//
+
 public class BestStudentQ implements IMaxPriorityQueue<Student> {
 
 	
-	//TODO: complete this using ArrayList with sorting
-	public static void main(String[] args) {
-
-		PriorityQueue<Student> pq = new PriorityQueue<Student>(3, new StudentComparator());
-
-		Student student1 = new Student("Yasir", 3.2);
-
-		pq.add(student1);
-		Student student2 = new Student("Safia", 3.6);
-		pq.add(student2);
-		Student student3 = new Student("Aizah", 4.0);
-		pq.add(student3);
-
-		System.out.println("Students served in their priority order");
-
-		while (!pq.isEmpty()) {
-			Student s = pq.poll();
-			System.out.println(s.getName() + " " + s.getgpa());
-
-		}
+	MaxHeap<Student> students;
+	
+	public BestStudentQ( ) {
+		Comparator<Student> studentComparator = new StudentComparator();
+		this.students = new MaxHeap<Student>(studentComparator);
 	}
+	
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		return students.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return false;
+		return students.size()==0;
 	}
 
 	@Override
-	public void insert(int priority, Student element) {
+	public void insert(Student element) {
 		// TODO Auto-generated method stub
-
+		students.add(element);
 	}
 
 	@Override
 	public Student max() {
 		// TODO Auto-generated method stub
-		return null;
+		// without removing, returns top student
+		return students.max();
 	}
 
 	@Override
 	public int maxKey() {
 		// TODO Auto-generated method stub
-		return 0;
+		return (int) (students.max().gpa*10.0);
 	}
 
 	@Override
 	public Student remove() {
 		// TODO Auto-generated method stub
-		return null;
+		return students.remove();
 	}
 }
+
