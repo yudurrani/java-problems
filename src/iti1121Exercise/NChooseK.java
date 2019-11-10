@@ -7,11 +7,11 @@ public class NChooseK {
 	static long counter = 0;
 	public static void main(String[] args) {
 
-		System.out.println(kNs(333, 60));
+		System.out.println(kNs(4,2));
 		System.out.println("Number of computations with dynamic: "+counter);
 		counter = 0;
-		System.out.println(kNsOld(333, 60));
-		System.out.println("Number of computations with plain recursive: "+counter);
+		System.out.println(kNsOld(4, 3));
+//		System.out.println("Number of computations with plain recursive: "+counter);
 
 	}
 	
