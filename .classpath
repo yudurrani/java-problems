@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/Aizah ke Parents/Desktop/fahad/BasicIO.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aizah ke Parents/Desktop/fahad/Media.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
