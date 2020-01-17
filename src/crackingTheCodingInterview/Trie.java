@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Trie {
 	
@@ -59,20 +60,37 @@ public class Trie {
 		
 	}
 	
-	public static void main(String[] args) {
+    private static final Scanner scanner = new Scanner(System.in);
 
-		final List<String> setOfStrings = new ArrayList<>();
-		setOfStrings.add("pqrs");
-		setOfStrings.add("pprt");
-		setOfStrings.add("psst");
-		setOfStrings.add("pqrs");
+    public static void main(String[] args) {
+        int n = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-		final Trie trie = new Trie();
+        for (int nItr = 0; nItr < n; nItr++) {
+            String[] opContact = scanner.nextLine().split(" ");
 
-		setOfStrings.forEach(trie::insert);
-		System.out.println(trie.search("pqrs"));
+            String op = opContact[0];
 
-	}
+            String contact = opContact[1];
+        }
+
+        scanner.close();
+    }
+	
+//	public static void main(String[] args) {
+//
+//		final List<String> setOfStrings = new ArrayList<>();
+//		setOfStrings.add("pqrs");
+//		setOfStrings.add("pprt");
+//		setOfStrings.add("psst");
+//		setOfStrings.add("pqrs");
+//
+//		final Trie trie = new Trie();
+//
+//		setOfStrings.forEach(trie::insert);
+//		System.out.println(trie.search("pqrs"));
+//
+//	}
 	
 
 }
