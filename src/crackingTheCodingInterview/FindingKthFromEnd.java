@@ -17,6 +17,24 @@ public class FindingKthFromEnd {
 		Node head;
 		int linkedListSize;
 
+		public void insertHead(int data) {
+			
+			Node saved;
+			
+			if ( head == null) {
+				head = new Node(data);
+				return;
+			}
+			
+			saved = head;
+			
+			head = new Node(data);
+			head.next = saved;
+			
+			
+			
+			
+		}
 		public void insert(int data) {
 
 			int size = 2;
@@ -48,7 +66,18 @@ public class FindingKthFromEnd {
 			return node.data;
 
 		}
+		
+		public void show() {
+			
+			Node node = head;
+			
+			while( node  != null) {
+				System.out.println(node.data);
+				node = node.next;
+			}
 
+		}
+		
 	}
 
 	public static int getKthFromLast(linkedList list, int position) {
@@ -63,18 +92,34 @@ public class FindingKthFromEnd {
 		System.out.println(data);
 		return data;
 	}
+	
+	// solution from book
+//	 public static int nthToLast(linkedList head, int k) {
+//		if (head == null) {
+//		return 0;
+//		}
+//		
+//		int i = nthToLast(head.next, k) + 1;
+//		if (i == k) {
+//		System.out.println(head.data);
+//		}
+//		return i;
+//		}
+	
+	
 
 	public static void main(String[] args) {
 
 		linkedList list = new linkedList();
 
 		list.insert(2);
-		list.insert(4);
-		list.insert(3);
-		list.insert(1);
-		list.insert(9);
-		list.insert(7);
+		list.insertHead(4);
+		list.insertHead(3);
+		list.show();
+//		list.insert(1);
+//		list.insert(9);
+//		list.insert(7);
 
-		getKthFromLast(list, 2);
+		System.out.println(list.next(2));
 	}
 }
